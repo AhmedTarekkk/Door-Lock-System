@@ -32,7 +32,7 @@ ISR(TIMER1_OVF_vect)
 {
 	if(g_callBackPtr2 != NULL_PTR)
 	{
-		(*g_callBackPtr1)();
+		(*g_callBackPtr2)();
 	}
 }
 

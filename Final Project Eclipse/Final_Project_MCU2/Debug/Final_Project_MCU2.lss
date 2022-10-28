@@ -3,33 +3,33 @@ Final_Project_MCU2.elf:     file format elf32-avr
 
 Sections:
 Idx Name          Size      VMA       LMA       File off  Algn
-  0 .text         00002008  00000000  00000000  00000094  2**1
+  0 .text         0000203c  00000000  00000000  00000094  2**1
                   CONTENTS, ALLOC, LOAD, READONLY, CODE
-  1 .data         0000001a  00800060  00002008  0000209c  2**0
+  1 .data         0000001a  00800060  0000203c  000020d0  2**0
                   CONTENTS, ALLOC, LOAD, DATA
-  2 .bss          00000025  0080007a  0080007a  000020b6  2**0
+  2 .bss          00000025  0080007a  0080007a  000020ea  2**0
                   ALLOC
-  3 .stab         00002970  00000000  00000000  000020b8  2**2
+  3 .stab         00002d0c  00000000  00000000  000020ec  2**2
                   CONTENTS, READONLY, DEBUGGING
-  4 .stabstr      0000183b  00000000  00000000  00004a28  2**0
+  4 .stabstr      00001ddf  00000000  00000000  00004df8  2**0
                   CONTENTS, READONLY, DEBUGGING
-  5 .debug_aranges 00000140  00000000  00000000  00006263  2**0
+  5 .debug_aranges 00000140  00000000  00000000  00006bd7  2**0
                   CONTENTS, READONLY, DEBUGGING
-  6 .debug_pubnames 00000170  00000000  00000000  000063a3  2**0
+  6 .debug_pubnames 00000170  00000000  00000000  00006d17  2**0
                   CONTENTS, READONLY, DEBUGGING
-  7 .debug_info   00001c49  00000000  00000000  00006513  2**0
+  7 .debug_info   00001c49  00000000  00000000  00006e87  2**0
                   CONTENTS, READONLY, DEBUGGING
-  8 .debug_abbrev 00000eeb  00000000  00000000  0000815c  2**0
+  8 .debug_abbrev 00000eeb  00000000  00000000  00008ad0  2**0
                   CONTENTS, READONLY, DEBUGGING
-  9 .debug_line   00000dad  00000000  00000000  00009047  2**0
+  9 .debug_line   00000dad  00000000  00000000  000099bb  2**0
                   CONTENTS, READONLY, DEBUGGING
- 10 .debug_frame  00000160  00000000  00000000  00009df4  2**2
+ 10 .debug_frame  00000160  00000000  00000000  0000a768  2**2
                   CONTENTS, READONLY, DEBUGGING
- 11 .debug_str    0000028d  00000000  00000000  00009f54  2**0
+ 11 .debug_str    0000028d  00000000  00000000  0000a8c8  2**0
                   CONTENTS, READONLY, DEBUGGING
- 12 .debug_loc    000007ce  00000000  00000000  0000a1e1  2**0
+ 12 .debug_loc    000007ce  00000000  00000000  0000ab55  2**0
                   CONTENTS, READONLY, DEBUGGING
- 13 .debug_ranges 00000050  00000000  00000000  0000a9af  2**0
+ 13 .debug_ranges 00000050  00000000  00000000  0000b323  2**0
                   CONTENTS, READONLY, DEBUGGING
 
 Disassembly of section .text:
@@ -69,7 +69,7 @@ Disassembly of section .text:
       60:	10 e0       	ldi	r17, 0x00	; 0
       62:	a0 e6       	ldi	r26, 0x60	; 96
       64:	b0 e0       	ldi	r27, 0x00	; 0
-      66:	e8 e0       	ldi	r30, 0x08	; 8
+      66:	ec e3       	ldi	r30, 0x3C	; 60
       68:	f0 e2       	ldi	r31, 0x20	; 32
       6a:	02 c0       	rjmp	.+4      	; 0x70 <.do_copy_data_start>
 
@@ -95,8 +95,8 @@ Disassembly of section .text:
       80:	af 39       	cpi	r26, 0x9F	; 159
       82:	b1 07       	cpc	r27, r17
       84:	e1 f7       	brne	.-8      	; 0x7e <.do_clear_bss_loop>
-      86:	0e 94 12 0e 	call	0x1c24	; 0x1c24 <main>
-      8a:	0c 94 02 10 	jmp	0x2004	; 0x2004 <_exit>
+      86:	0e 94 68 0f 	call	0x1ed0	; 0x1ed0 <main>
+      8a:	0c 94 1c 10 	jmp	0x2038	; 0x2038 <_exit>
 
 0000008e <__bad_interrupt>:
       8e:	0c 94 00 00 	jmp	0	; 0x0 <__vectors>
@@ -148,7 +148,7 @@ Disassembly of section .text:
       ec:	b0 e0       	ldi	r27, 0x00	; 0
       ee:	eb e7       	ldi	r30, 0x7B	; 123
       f0:	f0 e0       	ldi	r31, 0x00	; 0
-      f2:	0c 94 cb 0f 	jmp	0x1f96	; 0x1f96 <__prologue_saves__>
+      f2:	0c 94 e5 0f 	jmp	0x1fca	; 0x1fca <__prologue_saves__>
       f6:	dc 01       	movw	r26, r24
       f8:	2b 01       	movw	r4, r22
       fa:	fa 01       	movw	r30, r20
@@ -473,14 +473,14 @@ Disassembly of section .text:
      378:	cd b7       	in	r28, 0x3d	; 61
      37a:	de b7       	in	r29, 0x3e	; 62
      37c:	e2 e1       	ldi	r30, 0x12	; 18
-     37e:	0c 94 e7 0f 	jmp	0x1fce	; 0x1fce <__epilogue_restores__>
+     37e:	0c 94 01 10 	jmp	0x2002	; 0x2002 <__epilogue_restores__>
 
 00000382 <__subsf3>:
      382:	a0 e2       	ldi	r26, 0x20	; 32
      384:	b0 e0       	ldi	r27, 0x00	; 0
      386:	e7 ec       	ldi	r30, 0xC7	; 199
      388:	f1 e0       	ldi	r31, 0x01	; 1
-     38a:	0c 94 d7 0f 	jmp	0x1fae	; 0x1fae <__prologue_saves__+0x18>
+     38a:	0c 94 f1 0f 	jmp	0x1fe2	; 0x1fe2 <__prologue_saves__+0x18>
      38e:	69 83       	std	Y+1, r22	; 0x01
      390:	7a 83       	std	Y+2, r23	; 0x02
      392:	8b 83       	std	Y+3, r24	; 0x03
@@ -518,14 +518,14 @@ Disassembly of section .text:
      3d8:	0e 94 fd 03 	call	0x7fa	; 0x7fa <__pack_f>
      3dc:	a0 96       	adiw	r28, 0x20	; 32
      3de:	e6 e0       	ldi	r30, 0x06	; 6
-     3e0:	0c 94 f3 0f 	jmp	0x1fe6	; 0x1fe6 <__epilogue_restores__+0x18>
+     3e0:	0c 94 0d 10 	jmp	0x201a	; 0x201a <__epilogue_restores__+0x18>
 
 000003e4 <__addsf3>:
      3e4:	a0 e2       	ldi	r26, 0x20	; 32
      3e6:	b0 e0       	ldi	r27, 0x00	; 0
      3e8:	e8 ef       	ldi	r30, 0xF8	; 248
      3ea:	f1 e0       	ldi	r31, 0x01	; 1
-     3ec:	0c 94 d7 0f 	jmp	0x1fae	; 0x1fae <__prologue_saves__+0x18>
+     3ec:	0c 94 f1 0f 	jmp	0x1fe2	; 0x1fe2 <__prologue_saves__+0x18>
      3f0:	69 83       	std	Y+1, r22	; 0x01
      3f2:	7a 83       	std	Y+2, r23	; 0x02
      3f4:	8b 83       	std	Y+3, r24	; 0x03
@@ -559,14 +559,14 @@ Disassembly of section .text:
      432:	0e 94 fd 03 	call	0x7fa	; 0x7fa <__pack_f>
      436:	a0 96       	adiw	r28, 0x20	; 32
      438:	e6 e0       	ldi	r30, 0x06	; 6
-     43a:	0c 94 f3 0f 	jmp	0x1fe6	; 0x1fe6 <__epilogue_restores__+0x18>
+     43a:	0c 94 0d 10 	jmp	0x201a	; 0x201a <__epilogue_restores__+0x18>
 
 0000043e <__mulsf3>:
      43e:	a0 e2       	ldi	r26, 0x20	; 32
      440:	b0 e0       	ldi	r27, 0x00	; 0
      442:	e5 e2       	ldi	r30, 0x25	; 37
      444:	f2 e0       	ldi	r31, 0x02	; 2
-     446:	0c 94 cb 0f 	jmp	0x1f96	; 0x1f96 <__prologue_saves__>
+     446:	0c 94 e5 0f 	jmp	0x1fca	; 0x1fca <__prologue_saves__>
      44a:	69 83       	std	Y+1, r22	; 0x01
      44c:	7a 83       	std	Y+2, r23	; 0x02
      44e:	8b 83       	std	Y+3, r24	; 0x03
@@ -806,14 +806,14 @@ Disassembly of section .text:
      626:	0e 94 fd 03 	call	0x7fa	; 0x7fa <__pack_f>
      62a:	a0 96       	adiw	r28, 0x20	; 32
      62c:	e2 e1       	ldi	r30, 0x12	; 18
-     62e:	0c 94 e7 0f 	jmp	0x1fce	; 0x1fce <__epilogue_restores__>
+     62e:	0c 94 01 10 	jmp	0x2002	; 0x2002 <__epilogue_restores__>
 
 00000632 <__gtsf2>:
      632:	a8 e1       	ldi	r26, 0x18	; 24
      634:	b0 e0       	ldi	r27, 0x00	; 0
      636:	ef e1       	ldi	r30, 0x1F	; 31
      638:	f3 e0       	ldi	r31, 0x03	; 3
-     63a:	0c 94 d7 0f 	jmp	0x1fae	; 0x1fae <__prologue_saves__+0x18>
+     63a:	0c 94 f1 0f 	jmp	0x1fe2	; 0x1fe2 <__prologue_saves__+0x18>
      63e:	69 83       	std	Y+1, r22	; 0x01
      640:	7a 83       	std	Y+2, r23	; 0x02
      642:	8b 83       	std	Y+3, r24	; 0x03
@@ -851,14 +851,14 @@ Disassembly of section .text:
      688:	8f ef       	ldi	r24, 0xFF	; 255
      68a:	68 96       	adiw	r28, 0x18	; 24
      68c:	e6 e0       	ldi	r30, 0x06	; 6
-     68e:	0c 94 f3 0f 	jmp	0x1fe6	; 0x1fe6 <__epilogue_restores__+0x18>
+     68e:	0c 94 0d 10 	jmp	0x201a	; 0x201a <__epilogue_restores__+0x18>
 
 00000692 <__gesf2>:
      692:	a8 e1       	ldi	r26, 0x18	; 24
      694:	b0 e0       	ldi	r27, 0x00	; 0
      696:	ef e4       	ldi	r30, 0x4F	; 79
      698:	f3 e0       	ldi	r31, 0x03	; 3
-     69a:	0c 94 d7 0f 	jmp	0x1fae	; 0x1fae <__prologue_saves__+0x18>
+     69a:	0c 94 f1 0f 	jmp	0x1fe2	; 0x1fe2 <__prologue_saves__+0x18>
      69e:	69 83       	std	Y+1, r22	; 0x01
      6a0:	7a 83       	std	Y+2, r23	; 0x02
      6a2:	8b 83       	std	Y+3, r24	; 0x03
@@ -896,14 +896,14 @@ Disassembly of section .text:
      6e8:	8f ef       	ldi	r24, 0xFF	; 255
      6ea:	68 96       	adiw	r28, 0x18	; 24
      6ec:	e6 e0       	ldi	r30, 0x06	; 6
-     6ee:	0c 94 f3 0f 	jmp	0x1fe6	; 0x1fe6 <__epilogue_restores__+0x18>
+     6ee:	0c 94 0d 10 	jmp	0x201a	; 0x201a <__epilogue_restores__+0x18>
 
 000006f2 <__ltsf2>:
      6f2:	a8 e1       	ldi	r26, 0x18	; 24
      6f4:	b0 e0       	ldi	r27, 0x00	; 0
      6f6:	ef e7       	ldi	r30, 0x7F	; 127
      6f8:	f3 e0       	ldi	r31, 0x03	; 3
-     6fa:	0c 94 d7 0f 	jmp	0x1fae	; 0x1fae <__prologue_saves__+0x18>
+     6fa:	0c 94 f1 0f 	jmp	0x1fe2	; 0x1fe2 <__prologue_saves__+0x18>
      6fe:	69 83       	std	Y+1, r22	; 0x01
      700:	7a 83       	std	Y+2, r23	; 0x02
      702:	8b 83       	std	Y+3, r24	; 0x03
@@ -941,14 +941,14 @@ Disassembly of section .text:
      748:	81 e0       	ldi	r24, 0x01	; 1
      74a:	68 96       	adiw	r28, 0x18	; 24
      74c:	e6 e0       	ldi	r30, 0x06	; 6
-     74e:	0c 94 f3 0f 	jmp	0x1fe6	; 0x1fe6 <__epilogue_restores__+0x18>
+     74e:	0c 94 0d 10 	jmp	0x201a	; 0x201a <__epilogue_restores__+0x18>
 
 00000752 <__fixsfsi>:
      752:	ac e0       	ldi	r26, 0x0C	; 12
      754:	b0 e0       	ldi	r27, 0x00	; 0
      756:	ef ea       	ldi	r30, 0xAF	; 175
      758:	f3 e0       	ldi	r31, 0x03	; 3
-     75a:	0c 94 db 0f 	jmp	0x1fb6	; 0x1fb6 <__prologue_saves__+0x20>
+     75a:	0c 94 f5 0f 	jmp	0x1fea	; 0x1fea <__prologue_saves__+0x20>
      75e:	69 83       	std	Y+1, r22	; 0x01
      760:	7a 83       	std	Y+2, r23	; 0x02
      762:	8b 83       	std	Y+3, r24	; 0x03
@@ -1024,7 +1024,7 @@ Disassembly of section .text:
      7f0:	ca 01       	movw	r24, r20
      7f2:	2c 96       	adiw	r28, 0x0c	; 12
      7f4:	e2 e0       	ldi	r30, 0x02	; 2
-     7f6:	0c 94 f7 0f 	jmp	0x1fee	; 0x1fee <__epilogue_restores__+0x20>
+     7f6:	0c 94 11 10 	jmp	0x2022	; 0x2022 <__epilogue_restores__+0x20>
 
 000007fa <__pack_f>:
      7fa:	df 92       	push	r13
@@ -1664,7 +1664,7 @@ void UART_init(const UART_ConfigType * Configptr)
      cac:	b0 e0       	ldi	r27, 0x00	; 0
      cae:	bc 01       	movw	r22, r24
      cb0:	cd 01       	movw	r24, r26
-     cb2:	0e 94 a9 0f 	call	0x1f52	; 0x1f52 <__udivmodsi4>
+     cb2:	0e 94 c3 0f 	call	0x1f86	; 0x1f86 <__udivmodsi4>
      cb6:	da 01       	movw	r26, r20
      cb8:	c9 01       	movw	r24, r18
      cba:	01 97       	sbiw	r24, 0x01	; 1
@@ -1991,7 +1991,7 @@ void TWI_init(const TWI_ConfigType * Config_Ptr)
      e94:	b0 e0       	ldi	r27, 0x00	; 0
      e96:	bc 01       	movw	r22, r24
      e98:	cd 01       	movw	r24, r26
-     e9a:	0e 94 a9 0f 	call	0x1f52	; 0x1f52 <__udivmodsi4>
+     e9a:	0e 94 c3 0f 	call	0x1f86	; 0x1f86 <__udivmodsi4>
      e9e:	da 01       	movw	r26, r20
      ea0:	c9 01       	movw	r24, r18
      ea2:	40 97       	sbiw	r24, 0x10	; 16
@@ -2261,9 +2261,9 @@ ISR(TIMER1_OVF_vect)
     102a:	00 97       	sbiw	r24, 0x00	; 0
     102c:	29 f0       	breq	.+10     	; 0x1038 <__vector_9+0x40>
 	{
-		(*g_callBackPtr1)();
-    102e:	e0 91 7d 00 	lds	r30, 0x007D
-    1032:	f0 91 7e 00 	lds	r31, 0x007E
+		(*g_callBackPtr2)();
+    102e:	e0 91 7f 00 	lds	r30, 0x007F
+    1032:	f0 91 80 00 	lds	r31, 0x0080
     1036:	09 95       	icall
 	}
 }
@@ -2492,7 +2492,7 @@ void PWM_Timer0_Start(uint8 duty_cycle)
     1190:	24 e6       	ldi	r18, 0x64	; 100
     1192:	30 e0       	ldi	r19, 0x00	; 0
     1194:	b9 01       	movw	r22, r18
-    1196:	0e 94 95 0f 	call	0x1f2a	; 0x1f2a <__udivmodhi4>
+    1196:	0e 94 af 0f 	call	0x1f5e	; 0x1f5e <__udivmodhi4>
     119a:	cb 01       	movw	r24, r22
     119c:	80 83       	st	Z, r24
 	GPIO_setupPinDirection(PORTB_ID, PIN3_ID, PIN_OUTPUT); /* PWM pin as O/P */
@@ -4265,666 +4265,720 @@ void BUZZER_off(void)
     1c20:	df 91       	pop	r29
     1c22:	08 95       	ret
 
-00001c24 <main>:
-
-/*******************************************************************************
-*           					Main Function                                 *
-*******************************************************************************/
-int main(void)
-{
-    1c24:	df 93       	push	r29
-    1c26:	cf 93       	push	r28
-    1c28:	00 d0       	rcall	.+0      	; 0x1c2a <main+0x6>
-    1c2a:	0f 92       	push	r0
-    1c2c:	cd b7       	in	r28, 0x3d	; 61
-    1c2e:	de b7       	in	r29, 0x3e	; 62
-	/* Initialize different modules */
-	TWI_init(&TWI_Configuration);
-    1c30:	87 e7       	ldi	r24, 0x77	; 119
-    1c32:	90 e0       	ldi	r25, 0x00	; 0
-    1c34:	0e 94 1d 07 	call	0xe3a	; 0xe3a <TWI_init>
-	BUZZER_init();
-    1c38:	0e 94 ee 0d 	call	0x1bdc	; 0x1bdc <BUZZER_init>
-	DcMotor_Init();
-    1c3c:	0e 94 1a 0c 	call	0x1834	; 0x1834 <DcMotor_Init>
-	UART_init(&UART_Configuration);
-    1c40:	88 e6       	ldi	r24, 0x68	; 104
-    1c42:	90 e0       	ldi	r25, 0x00	; 0
-    1c44:	0e 94 d6 05 	call	0xbac	; 0xbac <UART_init>
-	sei();
-    1c48:	78 94       	sei
-	/* waiting MCU1 to be ready */
-	while( UART_receiveByte() != MC_Ready){}
-    1c4a:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
-    1c4e:	8c 3f       	cpi	r24, 0xFC	; 252
-    1c50:	e1 f7       	brne	.-8      	; 0x1c4a <main+0x26>
-	/* To check if password is set in the EEPROM or not */
-	EEPROM_readByte(Password_Is_Set_Address, &PasswordState);
-    1c52:	25 e8       	ldi	r18, 0x85	; 133
-    1c54:	30 e0       	ldi	r19, 0x00	; 0
-    1c56:	80 e2       	ldi	r24, 0x20	; 32
-    1c58:	93 e0       	ldi	r25, 0x03	; 3
-    1c5a:	b9 01       	movw	r22, r18
-    1c5c:	0e 94 18 0d 	call	0x1a30	; 0x1a30 <EEPROM_readByte>
-	/* send the password state to MCU1 to handle the different cases */
-	UART_sendByte(PasswordState);
-    1c60:	80 91 85 00 	lds	r24, 0x0085
-    1c64:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
-
-	while(1)
-	{
-		/* waiting MCU1 to send the message */
-		uint8 MSG = UART_receiveByte();
-    1c68:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
-    1c6c:	89 83       	std	Y+1, r24	; 0x01
-		switch(MSG)
-    1c6e:	89 81       	ldd	r24, Y+1	; 0x01
-    1c70:	28 2f       	mov	r18, r24
-    1c72:	30 e0       	ldi	r19, 0x00	; 0
-    1c74:	3b 83       	std	Y+3, r19	; 0x03
-    1c76:	2a 83       	std	Y+2, r18	; 0x02
-    1c78:	8a 81       	ldd	r24, Y+2	; 0x02
-    1c7a:	9b 81       	ldd	r25, Y+3	; 0x03
-    1c7c:	87 37       	cpi	r24, 0x77	; 119
-    1c7e:	91 05       	cpc	r25, r1
-    1c80:	09 f4       	brne	.+2      	; 0x1c84 <main+0x60>
-    1c82:	42 c0       	rjmp	.+132    	; 0x1d08 <main+0xe4>
-    1c84:	2a 81       	ldd	r18, Y+2	; 0x02
-    1c86:	3b 81       	ldd	r19, Y+3	; 0x03
-    1c88:	28 37       	cpi	r18, 0x78	; 120
-    1c8a:	31 05       	cpc	r19, r1
-    1c8c:	34 f4       	brge	.+12     	; 0x1c9a <main+0x76>
-    1c8e:	8a 81       	ldd	r24, Y+2	; 0x02
-    1c90:	9b 81       	ldd	r25, Y+3	; 0x03
-    1c92:	80 32       	cpi	r24, 0x20	; 32
-    1c94:	91 05       	cpc	r25, r1
-    1c96:	19 f1       	breq	.+70     	; 0x1cde <main+0xba>
-    1c98:	e7 cf       	rjmp	.-50     	; 0x1c68 <main+0x44>
-    1c9a:	2a 81       	ldd	r18, Y+2	; 0x02
-    1c9c:	3b 81       	ldd	r19, Y+3	; 0x03
-    1c9e:	28 38       	cpi	r18, 0x88	; 136
-    1ca0:	31 05       	cpc	r19, r1
-    1ca2:	41 f0       	breq	.+16     	; 0x1cb4 <main+0x90>
-    1ca4:	8a 81       	ldd	r24, Y+2	; 0x02
-    1ca6:	9b 81       	ldd	r25, Y+3	; 0x03
-    1ca8:	89 39       	cpi	r24, 0x99	; 153
-    1caa:	91 05       	cpc	r25, r1
-    1cac:	e9 f6       	brne	.-70     	; 0x1c68 <main+0x44>
-		{
-		/* In case MCU1 wants to set the password or update it */
-		case MSG_UpdatePassword:
-			App_updatePassword();
-    1cae:	0e 94 a8 0e 	call	0x1d50	; 0x1d50 <App_updatePassword>
-    1cb2:	da cf       	rjmp	.-76     	; 0x1c68 <main+0x44>
-			break;
-		/* In case MCU1 wants to enter ERROR state and turn the alarm on */
-		case MSG_TurnOnAlarm:
-			g_ticks = 0;
-    1cb4:	10 92 81 00 	sts	0x0081, r1
-			g_exitAlarmFlag = 0;
-    1cb8:	10 92 84 00 	sts	0x0084, r1
-			/* initialize the timer module with the desired ISR */
-			TIMER1_COMP_setCallBack(TIMER1_ALARM_ISR);
-    1cbc:	8e e7       	ldi	r24, 0x7E	; 126
-    1cbe:	9f e0       	ldi	r25, 0x0F	; 15
-    1cc0:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
-			TIMER1_init(&TIMER1_Configuration);
-    1cc4:	81 e7       	ldi	r24, 0x71	; 113
-    1cc6:	90 e0       	ldi	r25, 0x00	; 0
-    1cc8:	0e 94 2f 08 	call	0x105e	; 0x105e <TIMER1_init>
-			BUZZER_on(); /* Turn on the alarm */
-    1ccc:	0e 94 fa 0d 	call	0x1bf4	; 0x1bf4 <BUZZER_on>
-			while(g_exitAlarmFlag == 0){} /* wait until the timer counts 60 seconds */
-    1cd0:	80 91 84 00 	lds	r24, 0x0084
-    1cd4:	88 23       	and	r24, r24
-    1cd6:	e1 f3       	breq	.-8      	; 0x1cd0 <main+0xac>
-			BUZZER_off(); /* Turn off the alarm */
-    1cd8:	0e 94 06 0e 	call	0x1c0c	; 0x1c0c <BUZZER_off>
-    1cdc:	c5 cf       	rjmp	.-118    	; 0x1c68 <main+0x44>
-			break;
-		/* In case MCU1 wants to enter open the door */
-		case MSG_Motor:
-			g_ticks = 0;
-    1cde:	10 92 81 00 	sts	0x0081, r1
-			/* initialize the timer module with the desired ISR */
-			TIMER1_COMP_setCallBack(TIMER1_MOTOR_15SEC_ISR);
-    1ce2:	8d e2       	ldi	r24, 0x2D	; 45
-    1ce4:	9f e0       	ldi	r25, 0x0F	; 15
-    1ce6:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
-			TIMER1_init(&TIMER1_Configuration);
-    1cea:	81 e7       	ldi	r24, 0x71	; 113
-    1cec:	90 e0       	ldi	r25, 0x00	; 0
-    1cee:	0e 94 2f 08 	call	0x105e	; 0x105e <TIMER1_init>
-			DcMotor_Rotate(	DcMotor_CW, 100); /* opening the door */
-    1cf2:	81 e0       	ldi	r24, 0x01	; 1
-    1cf4:	64 e6       	ldi	r22, 0x64	; 100
-    1cf6:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
-			g_exitMotorFlag = 0;
-    1cfa:	10 92 82 00 	sts	0x0082, r1
-			while(g_exitMotorFlag == 0){}
-    1cfe:	80 91 82 00 	lds	r24, 0x0082
-    1d02:	88 23       	and	r24, r24
-    1d04:	e1 f3       	breq	.-8      	; 0x1cfe <main+0xda>
-    1d06:	b0 cf       	rjmp	.-160    	; 0x1c68 <main+0x44>
-			break;
-		/* In case MCU1 wants to know the password saved in EEPROM */
-		case MSG_checkPassword:
-			App_checkPassword();
-    1d08:	0e 94 dc 0e 	call	0x1db8	; 0x1db8 <App_checkPassword>
-    1d0c:	ad cf       	rjmp	.-166    	; 0x1c68 <main+0x44>
-
-00001d0e <App_readPassword>:
+00001c24 <APP_isPasswordSet>:
 * Parameters (in):    	None
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
-void App_readPassword()
+void APP_isPasswordSet()
 {
-    1d0e:	df 93       	push	r29
-    1d10:	cf 93       	push	r28
-    1d12:	0f 92       	push	r0
-    1d14:	cd b7       	in	r28, 0x3d	; 61
-    1d16:	de b7       	in	r29, 0x3e	; 62
-	for(uint8 i = 0 ; i < PASSWORD_SIZE ; i++ )
-    1d18:	19 82       	std	Y+1, r1	; 0x01
-    1d1a:	13 c0       	rjmp	.+38     	; 0x1d42 <App_readPassword+0x34>
-	{
-		EEPROM_readByte(Password_Address+i, (Password+i) );
-    1d1c:	89 81       	ldd	r24, Y+1	; 0x01
-    1d1e:	88 2f       	mov	r24, r24
-    1d20:	90 e0       	ldi	r25, 0x00	; 0
-    1d22:	80 5b       	subi	r24, 0xB0	; 176
-    1d24:	9c 4f       	sbci	r25, 0xFC	; 252
-    1d26:	ac 01       	movw	r20, r24
-    1d28:	89 81       	ldd	r24, Y+1	; 0x01
-    1d2a:	88 2f       	mov	r24, r24
-    1d2c:	90 e0       	ldi	r25, 0x00	; 0
-    1d2e:	9c 01       	movw	r18, r24
-    1d30:	26 56       	subi	r18, 0x66	; 102
-    1d32:	3f 4f       	sbci	r19, 0xFF	; 255
-    1d34:	ca 01       	movw	r24, r20
-    1d36:	b9 01       	movw	r22, r18
-    1d38:	0e 94 18 0d 	call	0x1a30	; 0x1a30 <EEPROM_readByte>
+    1c24:	df 93       	push	r29
+    1c26:	cf 93       	push	r28
+    1c28:	cd b7       	in	r28, 0x3d	; 61
+    1c2a:	de b7       	in	r29, 0x3e	; 62
+	/* To check if password is set in the EEPROM or not */
+	EEPROM_readByte(Password_Is_Set_Address, &PasswordState);
+    1c2c:	25 e8       	ldi	r18, 0x85	; 133
+    1c2e:	30 e0       	ldi	r19, 0x00	; 0
+    1c30:	80 e2       	ldi	r24, 0x20	; 32
+    1c32:	93 e0       	ldi	r25, 0x03	; 3
+    1c34:	b9 01       	movw	r22, r18
+    1c36:	0e 94 18 0d 	call	0x1a30	; 0x1a30 <EEPROM_readByte>
+	/* send the password state to MCU1 to handle the different cases */
+	UART_sendByte(PasswordState);
+    1c3a:	80 91 85 00 	lds	r24, 0x0085
+    1c3e:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
+}
+    1c42:	cf 91       	pop	r28
+    1c44:	df 91       	pop	r29
+    1c46:	08 95       	ret
+
+00001c48 <APP_readPassword>:
+* Parameters (in):    	None
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
-void App_readPassword()
+void APP_readPassword()
+{
+    1c48:	df 93       	push	r29
+    1c4a:	cf 93       	push	r28
+    1c4c:	0f 92       	push	r0
+    1c4e:	cd b7       	in	r28, 0x3d	; 61
+    1c50:	de b7       	in	r29, 0x3e	; 62
+	for(uint8 i = 0 ; i < PASSWORD_SIZE ; i++ )
+    1c52:	19 82       	std	Y+1, r1	; 0x01
+    1c54:	13 c0       	rjmp	.+38     	; 0x1c7c <APP_readPassword+0x34>
+	{
+		EEPROM_readByte(Password_Address+i, (Password+i) );
+    1c56:	89 81       	ldd	r24, Y+1	; 0x01
+    1c58:	88 2f       	mov	r24, r24
+    1c5a:	90 e0       	ldi	r25, 0x00	; 0
+    1c5c:	80 5b       	subi	r24, 0xB0	; 176
+    1c5e:	9c 4f       	sbci	r25, 0xFC	; 252
+    1c60:	ac 01       	movw	r20, r24
+    1c62:	89 81       	ldd	r24, Y+1	; 0x01
+    1c64:	88 2f       	mov	r24, r24
+    1c66:	90 e0       	ldi	r25, 0x00	; 0
+    1c68:	9c 01       	movw	r18, r24
+    1c6a:	26 56       	subi	r18, 0x66	; 102
+    1c6c:	3f 4f       	sbci	r19, 0xFF	; 255
+    1c6e:	ca 01       	movw	r24, r20
+    1c70:	b9 01       	movw	r22, r18
+    1c72:	0e 94 18 0d 	call	0x1a30	; 0x1a30 <EEPROM_readByte>
+* Parameters (out):   	None
+* Return value:      	void
+********************************************************************************/
+void APP_readPassword()
 {
 	for(uint8 i = 0 ; i < PASSWORD_SIZE ; i++ )
-    1d3c:	89 81       	ldd	r24, Y+1	; 0x01
-    1d3e:	8f 5f       	subi	r24, 0xFF	; 255
-    1d40:	89 83       	std	Y+1, r24	; 0x01
-    1d42:	89 81       	ldd	r24, Y+1	; 0x01
-    1d44:	85 30       	cpi	r24, 0x05	; 5
-    1d46:	50 f3       	brcs	.-44     	; 0x1d1c <App_readPassword+0xe>
+    1c76:	89 81       	ldd	r24, Y+1	; 0x01
+    1c78:	8f 5f       	subi	r24, 0xFF	; 255
+    1c7a:	89 83       	std	Y+1, r24	; 0x01
+    1c7c:	89 81       	ldd	r24, Y+1	; 0x01
+    1c7e:	85 30       	cpi	r24, 0x05	; 5
+    1c80:	50 f3       	brcs	.-44     	; 0x1c56 <APP_readPassword+0xe>
 	{
 		EEPROM_readByte(Password_Address+i, (Password+i) );
 	}
 }
-    1d48:	0f 90       	pop	r0
-    1d4a:	cf 91       	pop	r28
-    1d4c:	df 91       	pop	r29
-    1d4e:	08 95       	ret
+    1c82:	0f 90       	pop	r0
+    1c84:	cf 91       	pop	r28
+    1c86:	df 91       	pop	r29
+    1c88:	08 95       	ret
 
-00001d50 <App_updatePassword>:
+00001c8a <APP_updatePassword>:
 * Parameters (in):    	None
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
-void App_updatePassword()
+void APP_updatePassword()
 {
-    1d50:	0f 93       	push	r16
-    1d52:	1f 93       	push	r17
-    1d54:	df 93       	push	r29
-    1d56:	cf 93       	push	r28
-    1d58:	0f 92       	push	r0
-    1d5a:	cd b7       	in	r28, 0x3d	; 61
-    1d5c:	de b7       	in	r29, 0x3e	; 62
+    1c8a:	0f 93       	push	r16
+    1c8c:	1f 93       	push	r17
+    1c8e:	df 93       	push	r29
+    1c90:	cf 93       	push	r28
+    1c92:	0f 92       	push	r0
+    1c94:	cd b7       	in	r28, 0x3d	; 61
+    1c96:	de b7       	in	r29, 0x3e	; 62
 	for(uint8 k = 0 ; k < PASSWORD_SIZE ; k++)
-    1d5e:	19 82       	std	Y+1, r1	; 0x01
-    1d60:	1d c0       	rjmp	.+58     	; 0x1d9c <App_updatePassword+0x4c>
+    1c98:	19 82       	std	Y+1, r1	; 0x01
+    1c9a:	1d c0       	rjmp	.+58     	; 0x1cd6 <APP_updatePassword+0x4c>
 	{
 		Password[k] = UART_receiveByte(); /* Getting the new password from MCU1 */
-    1d62:	89 81       	ldd	r24, Y+1	; 0x01
-    1d64:	08 2f       	mov	r16, r24
-    1d66:	10 e0       	ldi	r17, 0x00	; 0
-    1d68:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
-    1d6c:	f8 01       	movw	r30, r16
-    1d6e:	e6 56       	subi	r30, 0x66	; 102
-    1d70:	ff 4f       	sbci	r31, 0xFF	; 255
-    1d72:	80 83       	st	Z, r24
+    1c9c:	89 81       	ldd	r24, Y+1	; 0x01
+    1c9e:	08 2f       	mov	r16, r24
+    1ca0:	10 e0       	ldi	r17, 0x00	; 0
+    1ca2:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
+    1ca6:	f8 01       	movw	r30, r16
+    1ca8:	e6 56       	subi	r30, 0x66	; 102
+    1caa:	ff 4f       	sbci	r31, 0xFF	; 255
+    1cac:	80 83       	st	Z, r24
 		EEPROM_writeByte(Password_Address+k, Password[k]); /* Write it in the EEPROM */
-    1d74:	89 81       	ldd	r24, Y+1	; 0x01
-    1d76:	88 2f       	mov	r24, r24
-    1d78:	90 e0       	ldi	r25, 0x00	; 0
-    1d7a:	80 5b       	subi	r24, 0xB0	; 176
-    1d7c:	9c 4f       	sbci	r25, 0xFC	; 252
-    1d7e:	ac 01       	movw	r20, r24
-    1d80:	89 81       	ldd	r24, Y+1	; 0x01
-    1d82:	88 2f       	mov	r24, r24
-    1d84:	90 e0       	ldi	r25, 0x00	; 0
-    1d86:	fc 01       	movw	r30, r24
-    1d88:	e6 56       	subi	r30, 0x66	; 102
-    1d8a:	ff 4f       	sbci	r31, 0xFF	; 255
-    1d8c:	20 81       	ld	r18, Z
-    1d8e:	ca 01       	movw	r24, r20
-    1d90:	62 2f       	mov	r22, r18
-    1d92:	0e 94 5f 0c 	call	0x18be	; 0x18be <EEPROM_writeByte>
+    1cae:	89 81       	ldd	r24, Y+1	; 0x01
+    1cb0:	88 2f       	mov	r24, r24
+    1cb2:	90 e0       	ldi	r25, 0x00	; 0
+    1cb4:	80 5b       	subi	r24, 0xB0	; 176
+    1cb6:	9c 4f       	sbci	r25, 0xFC	; 252
+    1cb8:	ac 01       	movw	r20, r24
+    1cba:	89 81       	ldd	r24, Y+1	; 0x01
+    1cbc:	88 2f       	mov	r24, r24
+    1cbe:	90 e0       	ldi	r25, 0x00	; 0
+    1cc0:	fc 01       	movw	r30, r24
+    1cc2:	e6 56       	subi	r30, 0x66	; 102
+    1cc4:	ff 4f       	sbci	r31, 0xFF	; 255
+    1cc6:	20 81       	ld	r18, Z
+    1cc8:	ca 01       	movw	r24, r20
+    1cca:	62 2f       	mov	r22, r18
+    1ccc:	0e 94 5f 0c 	call	0x18be	; 0x18be <EEPROM_writeByte>
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
-void App_updatePassword()
+void APP_updatePassword()
 {
 	for(uint8 k = 0 ; k < PASSWORD_SIZE ; k++)
-    1d96:	89 81       	ldd	r24, Y+1	; 0x01
-    1d98:	8f 5f       	subi	r24, 0xFF	; 255
-    1d9a:	89 83       	std	Y+1, r24	; 0x01
-    1d9c:	89 81       	ldd	r24, Y+1	; 0x01
-    1d9e:	85 30       	cpi	r24, 0x05	; 5
-    1da0:	00 f3       	brcs	.-64     	; 0x1d62 <App_updatePassword+0x12>
+    1cd0:	89 81       	ldd	r24, Y+1	; 0x01
+    1cd2:	8f 5f       	subi	r24, 0xFF	; 255
+    1cd4:	89 83       	std	Y+1, r24	; 0x01
+    1cd6:	89 81       	ldd	r24, Y+1	; 0x01
+    1cd8:	85 30       	cpi	r24, 0x05	; 5
+    1cda:	00 f3       	brcs	.-64     	; 0x1c9c <APP_updatePassword+0x12>
 	{
 		Password[k] = UART_receiveByte(); /* Getting the new password from MCU1 */
 		EEPROM_writeByte(Password_Address+k, Password[k]); /* Write it in the EEPROM */
 	}
 	EEPROM_writeByte(Password_Is_Set_Address, PasswordSET); /* Update password state to be set*/
-    1da2:	80 e2       	ldi	r24, 0x20	; 32
-    1da4:	93 e0       	ldi	r25, 0x03	; 3
-    1da6:	62 ec       	ldi	r22, 0xC2	; 194
-    1da8:	0e 94 5f 0c 	call	0x18be	; 0x18be <EEPROM_writeByte>
+    1cdc:	80 e2       	ldi	r24, 0x20	; 32
+    1cde:	93 e0       	ldi	r25, 0x03	; 3
+    1ce0:	62 ec       	ldi	r22, 0xC2	; 194
+    1ce2:	0e 94 5f 0c 	call	0x18be	; 0x18be <EEPROM_writeByte>
 }
-    1dac:	0f 90       	pop	r0
-    1dae:	cf 91       	pop	r28
-    1db0:	df 91       	pop	r29
-    1db2:	1f 91       	pop	r17
-    1db4:	0f 91       	pop	r16
-    1db6:	08 95       	ret
+    1ce6:	0f 90       	pop	r0
+    1ce8:	cf 91       	pop	r28
+    1cea:	df 91       	pop	r29
+    1cec:	1f 91       	pop	r17
+    1cee:	0f 91       	pop	r16
+    1cf0:	08 95       	ret
 
-00001db8 <App_checkPassword>:
+00001cf2 <APP_checkPassword>:
 * Parameters (in):    	None
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
-void App_checkPassword()
+void APP_checkPassword()
 {
-    1db8:	0f 93       	push	r16
-    1dba:	1f 93       	push	r17
-    1dbc:	df 93       	push	r29
-    1dbe:	cf 93       	push	r28
-    1dc0:	cd b7       	in	r28, 0x3d	; 61
-    1dc2:	de b7       	in	r29, 0x3e	; 62
-    1dc4:	27 97       	sbiw	r28, 0x07	; 7
-    1dc6:	0f b6       	in	r0, 0x3f	; 63
-    1dc8:	f8 94       	cli
-    1dca:	de bf       	out	0x3e, r29	; 62
-    1dcc:	0f be       	out	0x3f, r0	; 63
-    1dce:	cd bf       	out	0x3d, r28	; 61
+    1cf2:	0f 93       	push	r16
+    1cf4:	1f 93       	push	r17
+    1cf6:	df 93       	push	r29
+    1cf8:	cf 93       	push	r28
+    1cfa:	cd b7       	in	r28, 0x3d	; 61
+    1cfc:	de b7       	in	r29, 0x3e	; 62
+    1cfe:	27 97       	sbiw	r28, 0x07	; 7
+    1d00:	0f b6       	in	r0, 0x3f	; 63
+    1d02:	f8 94       	cli
+    1d04:	de bf       	out	0x3e, r29	; 62
+    1d06:	0f be       	out	0x3f, r0	; 63
+    1d08:	cd bf       	out	0x3d, r28	; 61
 	uint8 checkPassword[PASSWORD_SIZE]; /* Variable to save the password from the keypad in MCU1 */
-	App_readPassword(); /* Update the Password variable to be = to the password in the EEPROM */
-    1dd0:	0e 94 87 0e 	call	0x1d0e	; 0x1d0e <App_readPassword>
+	APP_readPassword(); /* Update the Password variable to be = to the password in the EEPROM */
+    1d0a:	0e 94 24 0e 	call	0x1c48	; 0x1c48 <APP_readPassword>
 	for(uint8 k = 0 ; k < PASSWORD_SIZE ; k++) /* Receiving the password from MCU1 */
-    1dd4:	1a 82       	std	Y+2, r1	; 0x02
-    1dd6:	12 c0       	rjmp	.+36     	; 0x1dfc <App_checkPassword+0x44>
+    1d0e:	1a 82       	std	Y+2, r1	; 0x02
+    1d10:	12 c0       	rjmp	.+36     	; 0x1d36 <APP_checkPassword+0x44>
 	{
 		checkPassword[k] = UART_receiveByte();
-    1dd8:	8a 81       	ldd	r24, Y+2	; 0x02
-    1dda:	08 2f       	mov	r16, r24
-    1ddc:	10 e0       	ldi	r17, 0x00	; 0
-    1dde:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
-    1de2:	28 2f       	mov	r18, r24
-    1de4:	ce 01       	movw	r24, r28
-    1de6:	03 96       	adiw	r24, 0x03	; 3
-    1de8:	fc 01       	movw	r30, r24
-    1dea:	e0 0f       	add	r30, r16
-    1dec:	f1 1f       	adc	r31, r17
-    1dee:	20 83       	st	Z, r18
+    1d12:	8a 81       	ldd	r24, Y+2	; 0x02
+    1d14:	08 2f       	mov	r16, r24
+    1d16:	10 e0       	ldi	r17, 0x00	; 0
+    1d18:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
+    1d1c:	28 2f       	mov	r18, r24
+    1d1e:	ce 01       	movw	r24, r28
+    1d20:	03 96       	adiw	r24, 0x03	; 3
+    1d22:	fc 01       	movw	r30, r24
+    1d24:	e0 0f       	add	r30, r16
+    1d26:	f1 1f       	adc	r31, r17
+    1d28:	20 83       	st	Z, r18
 		UART_sendByte(MC_Ready);
-    1df0:	8c ef       	ldi	r24, 0xFC	; 252
-    1df2:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
+    1d2a:	8c ef       	ldi	r24, 0xFC	; 252
+    1d2c:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
 ********************************************************************************/
-void App_checkPassword()
+void APP_checkPassword()
 {
 	uint8 checkPassword[PASSWORD_SIZE]; /* Variable to save the password from the keypad in MCU1 */
-	App_readPassword(); /* Update the Password variable to be = to the password in the EEPROM */
+	APP_readPassword(); /* Update the Password variable to be = to the password in the EEPROM */
 	for(uint8 k = 0 ; k < PASSWORD_SIZE ; k++) /* Receiving the password from MCU1 */
-    1df6:	8a 81       	ldd	r24, Y+2	; 0x02
-    1df8:	8f 5f       	subi	r24, 0xFF	; 255
-    1dfa:	8a 83       	std	Y+2, r24	; 0x02
-    1dfc:	8a 81       	ldd	r24, Y+2	; 0x02
-    1dfe:	85 30       	cpi	r24, 0x05	; 5
-    1e00:	58 f3       	brcs	.-42     	; 0x1dd8 <App_checkPassword+0x20>
+    1d30:	8a 81       	ldd	r24, Y+2	; 0x02
+    1d32:	8f 5f       	subi	r24, 0xFF	; 255
+    1d34:	8a 83       	std	Y+2, r24	; 0x02
+    1d36:	8a 81       	ldd	r24, Y+2	; 0x02
+    1d38:	85 30       	cpi	r24, 0x05	; 5
+    1d3a:	58 f3       	brcs	.-42     	; 0x1d12 <APP_checkPassword+0x20>
 	{
 		checkPassword[k] = UART_receiveByte();
 		UART_sendByte(MC_Ready);
 	}
 	for(uint8 j = 0 ; j < PASSWORD_SIZE ; j++) /* check if they are matched or not */
-    1e02:	19 82       	std	Y+1, r1	; 0x01
-    1e04:	19 c0       	rjmp	.+50     	; 0x1e38 <App_checkPassword+0x80>
+    1d3c:	19 82       	std	Y+1, r1	; 0x01
+    1d3e:	19 c0       	rjmp	.+50     	; 0x1d72 <APP_checkPassword+0x80>
 	{
 		if(Password[j] != checkPassword[j])
-    1e06:	89 81       	ldd	r24, Y+1	; 0x01
-    1e08:	88 2f       	mov	r24, r24
-    1e0a:	90 e0       	ldi	r25, 0x00	; 0
-    1e0c:	fc 01       	movw	r30, r24
-    1e0e:	e6 56       	subi	r30, 0x66	; 102
-    1e10:	ff 4f       	sbci	r31, 0xFF	; 255
-    1e12:	40 81       	ld	r20, Z
-    1e14:	89 81       	ldd	r24, Y+1	; 0x01
-    1e16:	28 2f       	mov	r18, r24
-    1e18:	30 e0       	ldi	r19, 0x00	; 0
-    1e1a:	ce 01       	movw	r24, r28
-    1e1c:	03 96       	adiw	r24, 0x03	; 3
-    1e1e:	fc 01       	movw	r30, r24
-    1e20:	e2 0f       	add	r30, r18
-    1e22:	f3 1f       	adc	r31, r19
-    1e24:	80 81       	ld	r24, Z
-    1e26:	48 17       	cp	r20, r24
-    1e28:	21 f0       	breq	.+8      	; 0x1e32 <App_checkPassword+0x7a>
+    1d40:	89 81       	ldd	r24, Y+1	; 0x01
+    1d42:	88 2f       	mov	r24, r24
+    1d44:	90 e0       	ldi	r25, 0x00	; 0
+    1d46:	fc 01       	movw	r30, r24
+    1d48:	e6 56       	subi	r30, 0x66	; 102
+    1d4a:	ff 4f       	sbci	r31, 0xFF	; 255
+    1d4c:	40 81       	ld	r20, Z
+    1d4e:	89 81       	ldd	r24, Y+1	; 0x01
+    1d50:	28 2f       	mov	r18, r24
+    1d52:	30 e0       	ldi	r19, 0x00	; 0
+    1d54:	ce 01       	movw	r24, r28
+    1d56:	03 96       	adiw	r24, 0x03	; 3
+    1d58:	fc 01       	movw	r30, r24
+    1d5a:	e2 0f       	add	r30, r18
+    1d5c:	f3 1f       	adc	r31, r19
+    1d5e:	80 81       	ld	r24, Z
+    1d60:	48 17       	cp	r20, r24
+    1d62:	21 f0       	breq	.+8      	; 0x1d6c <APP_checkPassword+0x7a>
 		{
 			UART_sendByte(MSG_UnMatched);
-    1e2a:	8f e0       	ldi	r24, 0x0F	; 15
-    1e2c:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
-    1e30:	09 c0       	rjmp	.+18     	; 0x1e44 <App_checkPassword+0x8c>
+    1d64:	8f e0       	ldi	r24, 0x0F	; 15
+    1d66:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
+    1d6a:	09 c0       	rjmp	.+18     	; 0x1d7e <APP_checkPassword+0x8c>
 	for(uint8 k = 0 ; k < PASSWORD_SIZE ; k++) /* Receiving the password from MCU1 */
 	{
 		checkPassword[k] = UART_receiveByte();
 		UART_sendByte(MC_Ready);
 	}
 	for(uint8 j = 0 ; j < PASSWORD_SIZE ; j++) /* check if they are matched or not */
-    1e32:	89 81       	ldd	r24, Y+1	; 0x01
-    1e34:	8f 5f       	subi	r24, 0xFF	; 255
-    1e36:	89 83       	std	Y+1, r24	; 0x01
-    1e38:	89 81       	ldd	r24, Y+1	; 0x01
-    1e3a:	85 30       	cpi	r24, 0x05	; 5
-    1e3c:	20 f3       	brcs	.-56     	; 0x1e06 <App_checkPassword+0x4e>
+    1d6c:	89 81       	ldd	r24, Y+1	; 0x01
+    1d6e:	8f 5f       	subi	r24, 0xFF	; 255
+    1d70:	89 83       	std	Y+1, r24	; 0x01
+    1d72:	89 81       	ldd	r24, Y+1	; 0x01
+    1d74:	85 30       	cpi	r24, 0x05	; 5
+    1d76:	20 f3       	brcs	.-56     	; 0x1d40 <APP_checkPassword+0x4e>
 		{
 			UART_sendByte(MSG_UnMatched);
 			return;
 		}
 	}
 	UART_sendByte(MSG_Matched);
-    1e3e:	80 ef       	ldi	r24, 0xF0	; 240
-    1e40:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
+    1d78:	80 ef       	ldi	r24, 0xF0	; 240
+    1d7a:	0e 94 77 06 	call	0xcee	; 0xcee <UART_sendByte>
 }
-    1e44:	27 96       	adiw	r28, 0x07	; 7
-    1e46:	0f b6       	in	r0, 0x3f	; 63
-    1e48:	f8 94       	cli
-    1e4a:	de bf       	out	0x3e, r29	; 62
-    1e4c:	0f be       	out	0x3f, r0	; 63
-    1e4e:	cd bf       	out	0x3d, r28	; 61
-    1e50:	cf 91       	pop	r28
-    1e52:	df 91       	pop	r29
-    1e54:	1f 91       	pop	r17
-    1e56:	0f 91       	pop	r16
-    1e58:	08 95       	ret
+    1d7e:	27 96       	adiw	r28, 0x07	; 7
+    1d80:	0f b6       	in	r0, 0x3f	; 63
+    1d82:	f8 94       	cli
+    1d84:	de bf       	out	0x3e, r29	; 62
+    1d86:	0f be       	out	0x3f, r0	; 63
+    1d88:	cd bf       	out	0x3d, r28	; 61
+    1d8a:	cf 91       	pop	r28
+    1d8c:	df 91       	pop	r29
+    1d8e:	1f 91       	pop	r17
+    1d90:	0f 91       	pop	r16
+    1d92:	08 95       	ret
 
-00001e5a <TIMER1_MOTOR_15SEC_ISR>:
+00001d94 <APP_alarm>:
+* Parameters (in):    	None
+* Parameters (out):   	None
+* Return value:      	void
+********************************************************************************/
+void APP_alarm()
+{
+    1d94:	df 93       	push	r29
+    1d96:	cf 93       	push	r28
+    1d98:	cd b7       	in	r28, 0x3d	; 61
+    1d9a:	de b7       	in	r29, 0x3e	; 62
+	g_ticks = 0;
+    1d9c:	10 92 81 00 	sts	0x0081, r1
+	g_exitAlarmFlag = 0;
+    1da0:	10 92 84 00 	sts	0x0084, r1
+	/* initialize the timer module with the desired ISR */
+	TIMER1_COMP_setCallBack(TIMER1_ALARM_ISR);
+    1da4:	81 e5       	ldi	r24, 0x51	; 81
+    1da6:	9f e0       	ldi	r25, 0x0F	; 15
+    1da8:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
+	TIMER1_init(&TIMER1_Configuration);
+    1dac:	88 e6       	ldi	r24, 0x68	; 104
+    1dae:	90 e0       	ldi	r25, 0x00	; 0
+    1db0:	0e 94 2f 08 	call	0x105e	; 0x105e <TIMER1_init>
+	BUZZER_on(); /* Turn on the alarm */
+    1db4:	0e 94 fa 0d 	call	0x1bf4	; 0x1bf4 <BUZZER_on>
+	while(g_exitAlarmFlag == 0){} /* wait until the timer counts 60 seconds */
+    1db8:	80 91 84 00 	lds	r24, 0x0084
+    1dbc:	88 23       	and	r24, r24
+    1dbe:	e1 f3       	breq	.-8      	; 0x1db8 <APP_alarm+0x24>
+	BUZZER_off(); /* Turn off the alarm */
+    1dc0:	0e 94 06 0e 	call	0x1c0c	; 0x1c0c <BUZZER_off>
+}
+    1dc4:	cf 91       	pop	r28
+    1dc6:	df 91       	pop	r29
+    1dc8:	08 95       	ret
+
+00001dca <APP_door>:
+* Parameters (in):    	None
+* Parameters (out):   	None
+* Return value:      	void
+********************************************************************************/
+void APP_door()
+{
+    1dca:	df 93       	push	r29
+    1dcc:	cf 93       	push	r28
+    1dce:	cd b7       	in	r28, 0x3d	; 61
+    1dd0:	de b7       	in	r29, 0x3e	; 62
+	g_ticks = 0;
+    1dd2:	10 92 81 00 	sts	0x0081, r1
+	/* initialize the timer module with the desired ISR */
+	TIMER1_COMP_setCallBack(TIMER1_MOTOR_15SEC_ISR);
+    1dd6:	80 e0       	ldi	r24, 0x00	; 0
+    1dd8:	9f e0       	ldi	r25, 0x0F	; 15
+    1dda:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
+	TIMER1_init(&TIMER1_Configuration);
+    1dde:	88 e6       	ldi	r24, 0x68	; 104
+    1de0:	90 e0       	ldi	r25, 0x00	; 0
+    1de2:	0e 94 2f 08 	call	0x105e	; 0x105e <TIMER1_init>
+	DcMotor_Rotate(	DcMotor_CW, 100); /* opening the door */
+    1de6:	81 e0       	ldi	r24, 0x01	; 1
+    1de8:	64 e6       	ldi	r22, 0x64	; 100
+    1dea:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
+	g_exitMotorFlag = 0;
+    1dee:	10 92 82 00 	sts	0x0082, r1
+	while(g_exitMotorFlag == 0){}
+    1df2:	80 91 82 00 	lds	r24, 0x0082
+    1df6:	88 23       	and	r24, r24
+    1df8:	e1 f3       	breq	.-8      	; 0x1df2 <APP_door+0x28>
+}
+    1dfa:	cf 91       	pop	r28
+    1dfc:	df 91       	pop	r29
+    1dfe:	08 95       	ret
+
+00001e00 <TIMER1_MOTOR_15SEC_ISR>:
 * Parameters (in):    	None
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
 void TIMER1_MOTOR_15SEC_ISR(void)
 {
-    1e5a:	df 93       	push	r29
-    1e5c:	cf 93       	push	r28
-    1e5e:	cd b7       	in	r28, 0x3d	; 61
-    1e60:	de b7       	in	r29, 0x3e	; 62
+    1e00:	df 93       	push	r29
+    1e02:	cf 93       	push	r28
+    1e04:	cd b7       	in	r28, 0x3d	; 61
+    1e06:	de b7       	in	r29, 0x3e	; 62
 	g_ticks++;
-    1e62:	80 91 81 00 	lds	r24, 0x0081
-    1e66:	8f 5f       	subi	r24, 0xFF	; 255
-    1e68:	80 93 81 00 	sts	0x0081, r24
+    1e08:	80 91 81 00 	lds	r24, 0x0081
+    1e0c:	8f 5f       	subi	r24, 0xFF	; 255
+    1e0e:	80 93 81 00 	sts	0x0081, r24
 	if(g_ticks == 15)
-    1e6c:	80 91 81 00 	lds	r24, 0x0081
-    1e70:	8f 30       	cpi	r24, 0x0F	; 15
-    1e72:	29 f5       	brne	.+74     	; 0x1ebe <TIMER1_MOTOR_15SEC_ISR+0x64>
+    1e12:	80 91 81 00 	lds	r24, 0x0081
+    1e16:	8f 30       	cpi	r24, 0x0F	; 15
+    1e18:	29 f5       	brne	.+74     	; 0x1e64 <TIMER1_MOTOR_15SEC_ISR+0x64>
 	{
 		g_ticks = 0;
-    1e74:	10 92 81 00 	sts	0x0081, r1
+    1e1a:	10 92 81 00 	sts	0x0081, r1
 		if(g_MotorUnlocking == 0) /* wait until number of seconds = 15 */
-    1e78:	80 91 83 00 	lds	r24, 0x0083
-    1e7c:	88 23       	and	r24, r24
-    1e7e:	81 f4       	brne	.+32     	; 0x1ea0 <TIMER1_MOTOR_15SEC_ISR+0x46>
+    1e1e:	80 91 83 00 	lds	r24, 0x0083
+    1e22:	88 23       	and	r24, r24
+    1e24:	81 f4       	brne	.+32     	; 0x1e46 <TIMER1_MOTOR_15SEC_ISR+0x46>
 		{
 			/* Waiting MC1 to be Ready as LCD is slow at writing and Turning Motor On or OFF is fast so there will
 			 * a delay that we can solve by waiting LCD to write then turn the motor on or off */
 			UART_receiveByte();
-    1e80:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
+    1e26:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
 			DcMotor_Rotate(	DcMotor_STOP, 100); /* the door now is unlocked */
-    1e84:	80 e0       	ldi	r24, 0x00	; 0
-    1e86:	64 e6       	ldi	r22, 0x64	; 100
-    1e88:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
+    1e2a:	80 e0       	ldi	r24, 0x00	; 0
+    1e2c:	64 e6       	ldi	r22, 0x64	; 100
+    1e2e:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
 			g_MotorUnlocking++;
-    1e8c:	80 91 83 00 	lds	r24, 0x0083
-    1e90:	8f 5f       	subi	r24, 0xFF	; 255
-    1e92:	80 93 83 00 	sts	0x0083, r24
+    1e32:	80 91 83 00 	lds	r24, 0x0083
+    1e36:	8f 5f       	subi	r24, 0xFF	; 255
+    1e38:	80 93 83 00 	sts	0x0083, r24
 			TIMER1_COMP_setCallBack(TIMER1_MOTOR_3SEC_ISR); /* to wait another 3 seconds then lock it again */
-    1e96:	82 e6       	ldi	r24, 0x62	; 98
-    1e98:	9f e0       	ldi	r25, 0x0F	; 15
-    1e9a:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
-    1e9e:	0f c0       	rjmp	.+30     	; 0x1ebe <TIMER1_MOTOR_15SEC_ISR+0x64>
+    1e3c:	85 e3       	ldi	r24, 0x35	; 53
+    1e3e:	9f e0       	ldi	r25, 0x0F	; 15
+    1e40:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
+    1e44:	0f c0       	rjmp	.+30     	; 0x1e64 <TIMER1_MOTOR_15SEC_ISR+0x64>
 		}
 		else if(g_MotorUnlocking == 1) /* in case it is the second time to come here then we handled every case for the door and we want to exit*/
-    1ea0:	80 91 83 00 	lds	r24, 0x0083
-    1ea4:	81 30       	cpi	r24, 0x01	; 1
-    1ea6:	59 f4       	brne	.+22     	; 0x1ebe <TIMER1_MOTOR_15SEC_ISR+0x64>
+    1e46:	80 91 83 00 	lds	r24, 0x0083
+    1e4a:	81 30       	cpi	r24, 0x01	; 1
+    1e4c:	59 f4       	brne	.+22     	; 0x1e64 <TIMER1_MOTOR_15SEC_ISR+0x64>
 		{
 			g_MotorUnlocking = 0;
-    1ea8:	10 92 83 00 	sts	0x0083, r1
+    1e4e:	10 92 83 00 	sts	0x0083, r1
 			g_exitMotorFlag = 1; /* to exit the function */
-    1eac:	81 e0       	ldi	r24, 0x01	; 1
-    1eae:	80 93 82 00 	sts	0x0082, r24
+    1e52:	81 e0       	ldi	r24, 0x01	; 1
+    1e54:	80 93 82 00 	sts	0x0082, r24
 			DcMotor_Rotate(	DcMotor_STOP, 100); /* Stop the motor */
-    1eb2:	80 e0       	ldi	r24, 0x00	; 0
-    1eb4:	64 e6       	ldi	r22, 0x64	; 100
-    1eb6:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
+    1e58:	80 e0       	ldi	r24, 0x00	; 0
+    1e5a:	64 e6       	ldi	r22, 0x64	; 100
+    1e5c:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
 			TIMER1_deInit(); /* stop the timer */
-    1eba:	0e 94 73 08 	call	0x10e6	; 0x10e6 <TIMER1_deInit>
+    1e60:	0e 94 73 08 	call	0x10e6	; 0x10e6 <TIMER1_deInit>
 		}
 	}
 }
-    1ebe:	cf 91       	pop	r28
-    1ec0:	df 91       	pop	r29
-    1ec2:	08 95       	ret
+    1e64:	cf 91       	pop	r28
+    1e66:	df 91       	pop	r29
+    1e68:	08 95       	ret
 
-00001ec4 <TIMER1_MOTOR_3SEC_ISR>:
+00001e6a <TIMER1_MOTOR_3SEC_ISR>:
 * Parameters (in):    	None
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
 void TIMER1_MOTOR_3SEC_ISR(void)
 {
-    1ec4:	df 93       	push	r29
-    1ec6:	cf 93       	push	r28
-    1ec8:	cd b7       	in	r28, 0x3d	; 61
-    1eca:	de b7       	in	r29, 0x3e	; 62
+    1e6a:	df 93       	push	r29
+    1e6c:	cf 93       	push	r28
+    1e6e:	cd b7       	in	r28, 0x3d	; 61
+    1e70:	de b7       	in	r29, 0x3e	; 62
 	g_ticks++;
-    1ecc:	80 91 81 00 	lds	r24, 0x0081
-    1ed0:	8f 5f       	subi	r24, 0xFF	; 255
-    1ed2:	80 93 81 00 	sts	0x0081, r24
+    1e72:	80 91 81 00 	lds	r24, 0x0081
+    1e76:	8f 5f       	subi	r24, 0xFF	; 255
+    1e78:	80 93 81 00 	sts	0x0081, r24
 	if(g_ticks == 3) /* wait until number of seconds = 3 */
-    1ed6:	80 91 81 00 	lds	r24, 0x0081
-    1eda:	83 30       	cpi	r24, 0x03	; 3
-    1edc:	61 f4       	brne	.+24     	; 0x1ef6 <TIMER1_MOTOR_3SEC_ISR+0x32>
+    1e7c:	80 91 81 00 	lds	r24, 0x0081
+    1e80:	83 30       	cpi	r24, 0x03	; 3
+    1e82:	61 f4       	brne	.+24     	; 0x1e9c <TIMER1_MOTOR_3SEC_ISR+0x32>
 	{
 		g_ticks = 0;
-    1ede:	10 92 81 00 	sts	0x0081, r1
+    1e84:	10 92 81 00 	sts	0x0081, r1
 		/* Waiting MC1 to be Ready as LCD is slow at writing and Turning Motor On or OFF is fast so there will
 		 * a delay that we can solve by waiting LCD to write then turn the motor on or off */
 		UART_receiveByte();
-    1ee2:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
+    1e88:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
 		DcMotor_Rotate(	DcMotor_CCW, 100); /* Lock the door again */
-    1ee6:	82 e0       	ldi	r24, 0x02	; 2
-    1ee8:	64 e6       	ldi	r22, 0x64	; 100
-    1eea:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
+    1e8c:	82 e0       	ldi	r24, 0x02	; 2
+    1e8e:	64 e6       	ldi	r22, 0x64	; 100
+    1e90:	0e 94 35 0c 	call	0x186a	; 0x186a <DcMotor_Rotate>
 		TIMER1_COMP_setCallBack(TIMER1_MOTOR_15SEC_ISR); /* to count 15 seconds then stop the motor */
-    1eee:	8d e2       	ldi	r24, 0x2D	; 45
-    1ef0:	9f e0       	ldi	r25, 0x0F	; 15
-    1ef2:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
+    1e94:	80 e0       	ldi	r24, 0x00	; 0
+    1e96:	9f e0       	ldi	r25, 0x0F	; 15
+    1e98:	0e 94 88 08 	call	0x1110	; 0x1110 <TIMER1_COMP_setCallBack>
 	}
 }
-    1ef6:	cf 91       	pop	r28
-    1ef8:	df 91       	pop	r29
-    1efa:	08 95       	ret
+    1e9c:	cf 91       	pop	r28
+    1e9e:	df 91       	pop	r29
+    1ea0:	08 95       	ret
 
-00001efc <TIMER1_ALARM_ISR>:
+00001ea2 <TIMER1_ALARM_ISR>:
 * Parameters (in):    	None
 * Parameters (out):   	None
 * Return value:      	void
 ********************************************************************************/
 void TIMER1_ALARM_ISR()
 {
-    1efc:	df 93       	push	r29
-    1efe:	cf 93       	push	r28
-    1f00:	cd b7       	in	r28, 0x3d	; 61
-    1f02:	de b7       	in	r29, 0x3e	; 62
+    1ea2:	df 93       	push	r29
+    1ea4:	cf 93       	push	r28
+    1ea6:	cd b7       	in	r28, 0x3d	; 61
+    1ea8:	de b7       	in	r29, 0x3e	; 62
 	g_ticks++;
-    1f04:	80 91 81 00 	lds	r24, 0x0081
-    1f08:	8f 5f       	subi	r24, 0xFF	; 255
-    1f0a:	80 93 81 00 	sts	0x0081, r24
+    1eaa:	80 91 81 00 	lds	r24, 0x0081
+    1eae:	8f 5f       	subi	r24, 0xFF	; 255
+    1eb0:	80 93 81 00 	sts	0x0081, r24
 	if(g_ticks == 60)  /* wait until number of seconds = 60 */
-    1f0e:	80 91 81 00 	lds	r24, 0x0081
-    1f12:	8c 33       	cpi	r24, 0x3C	; 60
-    1f14:	39 f4       	brne	.+14     	; 0x1f24 <TIMER1_ALARM_ISR+0x28>
+    1eb4:	80 91 81 00 	lds	r24, 0x0081
+    1eb8:	8c 33       	cpi	r24, 0x3C	; 60
+    1eba:	39 f4       	brne	.+14     	; 0x1eca <TIMER1_ALARM_ISR+0x28>
 	{
 		g_ticks = 0;
-    1f16:	10 92 81 00 	sts	0x0081, r1
+    1ebc:	10 92 81 00 	sts	0x0081, r1
 		g_exitAlarmFlag = 1; /* exit ERROR state and turn off the buzzer */
-    1f1a:	81 e0       	ldi	r24, 0x01	; 1
-    1f1c:	80 93 84 00 	sts	0x0084, r24
+    1ec0:	81 e0       	ldi	r24, 0x01	; 1
+    1ec2:	80 93 84 00 	sts	0x0084, r24
 		TIMER1_deInit(); /* stop the timer */
-    1f20:	0e 94 73 08 	call	0x10e6	; 0x10e6 <TIMER1_deInit>
+    1ec6:	0e 94 73 08 	call	0x10e6	; 0x10e6 <TIMER1_deInit>
 	}
 }
-    1f24:	cf 91       	pop	r28
-    1f26:	df 91       	pop	r29
-    1f28:	08 95       	ret
+    1eca:	cf 91       	pop	r28
+    1ecc:	df 91       	pop	r29
+    1ece:	08 95       	ret
 
-00001f2a <__udivmodhi4>:
-    1f2a:	aa 1b       	sub	r26, r26
-    1f2c:	bb 1b       	sub	r27, r27
-    1f2e:	51 e1       	ldi	r21, 0x11	; 17
-    1f30:	07 c0       	rjmp	.+14     	; 0x1f40 <__udivmodhi4_ep>
+00001ed0 <main>:
 
-00001f32 <__udivmodhi4_loop>:
-    1f32:	aa 1f       	adc	r26, r26
-    1f34:	bb 1f       	adc	r27, r27
-    1f36:	a6 17       	cp	r26, r22
-    1f38:	b7 07       	cpc	r27, r23
-    1f3a:	10 f0       	brcs	.+4      	; 0x1f40 <__udivmodhi4_ep>
-    1f3c:	a6 1b       	sub	r26, r22
-    1f3e:	b7 0b       	sbc	r27, r23
+/*******************************************************************************
+*           					Main Function                                 *
+*******************************************************************************/
+int main(void)
+{
+    1ed0:	df 93       	push	r29
+    1ed2:	cf 93       	push	r28
+    1ed4:	00 d0       	rcall	.+0      	; 0x1ed6 <main+0x6>
+    1ed6:	0f 92       	push	r0
+    1ed8:	cd b7       	in	r28, 0x3d	; 61
+    1eda:	de b7       	in	r29, 0x3e	; 62
+	/* Initialize different modules */
+	TWI_init(&TWI_Configuration);
+    1edc:	87 e7       	ldi	r24, 0x77	; 119
+    1ede:	90 e0       	ldi	r25, 0x00	; 0
+    1ee0:	0e 94 1d 07 	call	0xe3a	; 0xe3a <TWI_init>
+	BUZZER_init();
+    1ee4:	0e 94 ee 0d 	call	0x1bdc	; 0x1bdc <BUZZER_init>
+	DcMotor_Init();
+    1ee8:	0e 94 1a 0c 	call	0x1834	; 0x1834 <DcMotor_Init>
+	UART_init(&UART_Configuration);
+    1eec:	8e e6       	ldi	r24, 0x6E	; 110
+    1eee:	90 e0       	ldi	r25, 0x00	; 0
+    1ef0:	0e 94 d6 05 	call	0xbac	; 0xbac <UART_init>
+	sei();
+    1ef4:	78 94       	sei
+	/* waiting MCU1 to be ready */
+	while( UART_receiveByte() != MC_Ready){}
+    1ef6:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
+    1efa:	8c 3f       	cpi	r24, 0xFC	; 252
+    1efc:	e1 f7       	brne	.-8      	; 0x1ef6 <main+0x26>
 
-00001f40 <__udivmodhi4_ep>:
-    1f40:	88 1f       	adc	r24, r24
-    1f42:	99 1f       	adc	r25, r25
-    1f44:	5a 95       	dec	r21
-    1f46:	a9 f7       	brne	.-22     	; 0x1f32 <__udivmodhi4_loop>
-    1f48:	80 95       	com	r24
-    1f4a:	90 95       	com	r25
-    1f4c:	bc 01       	movw	r22, r24
-    1f4e:	cd 01       	movw	r24, r26
-    1f50:	08 95       	ret
+	APP_isPasswordSet(); /* To check if password is set in the EEPROM or not for first time entring the program */
+    1efe:	0e 94 12 0e 	call	0x1c24	; 0x1c24 <APP_isPasswordSet>
 
-00001f52 <__udivmodsi4>:
-    1f52:	a1 e2       	ldi	r26, 0x21	; 33
-    1f54:	1a 2e       	mov	r1, r26
-    1f56:	aa 1b       	sub	r26, r26
-    1f58:	bb 1b       	sub	r27, r27
-    1f5a:	fd 01       	movw	r30, r26
-    1f5c:	0d c0       	rjmp	.+26     	; 0x1f78 <__udivmodsi4_ep>
+	while(1)
+	{
+		/* waiting MCU1 to send the message */
+		uint8 MSG = UART_receiveByte();
+    1f02:	0e 94 8e 06 	call	0xd1c	; 0xd1c <UART_receiveByte>
+    1f06:	89 83       	std	Y+1, r24	; 0x01
+		switch(MSG)
+    1f08:	89 81       	ldd	r24, Y+1	; 0x01
+    1f0a:	28 2f       	mov	r18, r24
+    1f0c:	30 e0       	ldi	r19, 0x00	; 0
+    1f0e:	3b 83       	std	Y+3, r19	; 0x03
+    1f10:	2a 83       	std	Y+2, r18	; 0x02
+    1f12:	8a 81       	ldd	r24, Y+2	; 0x02
+    1f14:	9b 81       	ldd	r25, Y+3	; 0x03
+    1f16:	87 37       	cpi	r24, 0x77	; 119
+    1f18:	91 05       	cpc	r25, r1
+    1f1a:	f1 f0       	breq	.+60     	; 0x1f58 <main+0x88>
+    1f1c:	2a 81       	ldd	r18, Y+2	; 0x02
+    1f1e:	3b 81       	ldd	r19, Y+3	; 0x03
+    1f20:	28 37       	cpi	r18, 0x78	; 120
+    1f22:	31 05       	cpc	r19, r1
+    1f24:	34 f4       	brge	.+12     	; 0x1f32 <main+0x62>
+    1f26:	8a 81       	ldd	r24, Y+2	; 0x02
+    1f28:	9b 81       	ldd	r25, Y+3	; 0x03
+    1f2a:	80 32       	cpi	r24, 0x20	; 32
+    1f2c:	91 05       	cpc	r25, r1
+    1f2e:	89 f0       	breq	.+34     	; 0x1f52 <main+0x82>
+    1f30:	e8 cf       	rjmp	.-48     	; 0x1f02 <main+0x32>
+    1f32:	2a 81       	ldd	r18, Y+2	; 0x02
+    1f34:	3b 81       	ldd	r19, Y+3	; 0x03
+    1f36:	28 38       	cpi	r18, 0x88	; 136
+    1f38:	31 05       	cpc	r19, r1
+    1f3a:	41 f0       	breq	.+16     	; 0x1f4c <main+0x7c>
+    1f3c:	8a 81       	ldd	r24, Y+2	; 0x02
+    1f3e:	9b 81       	ldd	r25, Y+3	; 0x03
+    1f40:	89 39       	cpi	r24, 0x99	; 153
+    1f42:	91 05       	cpc	r25, r1
+    1f44:	f1 f6       	brne	.-68     	; 0x1f02 <main+0x32>
+		{
+		/* In case MCU1 wants to set the password or update it */
+		case MSG_UpdatePassword:
+			APP_updatePassword();
+    1f46:	0e 94 45 0e 	call	0x1c8a	; 0x1c8a <APP_updatePassword>
+    1f4a:	db cf       	rjmp	.-74     	; 0x1f02 <main+0x32>
+			break;
+		/* In case MCU1 wants to enter ERROR state and turn the alarm on */
+		case MSG_TurnOnAlarm:
+			APP_alarm(); /* call the function that is responsible of turning alarm on for 60 seconds */
+    1f4c:	0e 94 ca 0e 	call	0x1d94	; 0x1d94 <APP_alarm>
+    1f50:	d8 cf       	rjmp	.-80     	; 0x1f02 <main+0x32>
+			break;
+		/* In case MCU1 wants to enter open the door */
+		case MSG_Motor:
+			APP_door();/* call the function that is responsible of opening the door */
+    1f52:	0e 94 e5 0e 	call	0x1dca	; 0x1dca <APP_door>
+    1f56:	d5 cf       	rjmp	.-86     	; 0x1f02 <main+0x32>
+			break;
+		/* In case MCU1 wants to know the password saved in EEPROM */
+		case MSG_checkPassword:
+			APP_checkPassword();
+    1f58:	0e 94 79 0e 	call	0x1cf2	; 0x1cf2 <APP_checkPassword>
+    1f5c:	d2 cf       	rjmp	.-92     	; 0x1f02 <main+0x32>
 
-00001f5e <__udivmodsi4_loop>:
-    1f5e:	aa 1f       	adc	r26, r26
-    1f60:	bb 1f       	adc	r27, r27
-    1f62:	ee 1f       	adc	r30, r30
-    1f64:	ff 1f       	adc	r31, r31
-    1f66:	a2 17       	cp	r26, r18
-    1f68:	b3 07       	cpc	r27, r19
-    1f6a:	e4 07       	cpc	r30, r20
-    1f6c:	f5 07       	cpc	r31, r21
-    1f6e:	20 f0       	brcs	.+8      	; 0x1f78 <__udivmodsi4_ep>
-    1f70:	a2 1b       	sub	r26, r18
-    1f72:	b3 0b       	sbc	r27, r19
-    1f74:	e4 0b       	sbc	r30, r20
-    1f76:	f5 0b       	sbc	r31, r21
+00001f5e <__udivmodhi4>:
+    1f5e:	aa 1b       	sub	r26, r26
+    1f60:	bb 1b       	sub	r27, r27
+    1f62:	51 e1       	ldi	r21, 0x11	; 17
+    1f64:	07 c0       	rjmp	.+14     	; 0x1f74 <__udivmodhi4_ep>
 
-00001f78 <__udivmodsi4_ep>:
-    1f78:	66 1f       	adc	r22, r22
-    1f7a:	77 1f       	adc	r23, r23
-    1f7c:	88 1f       	adc	r24, r24
-    1f7e:	99 1f       	adc	r25, r25
-    1f80:	1a 94       	dec	r1
-    1f82:	69 f7       	brne	.-38     	; 0x1f5e <__udivmodsi4_loop>
-    1f84:	60 95       	com	r22
-    1f86:	70 95       	com	r23
-    1f88:	80 95       	com	r24
-    1f8a:	90 95       	com	r25
-    1f8c:	9b 01       	movw	r18, r22
-    1f8e:	ac 01       	movw	r20, r24
-    1f90:	bd 01       	movw	r22, r26
-    1f92:	cf 01       	movw	r24, r30
-    1f94:	08 95       	ret
+00001f66 <__udivmodhi4_loop>:
+    1f66:	aa 1f       	adc	r26, r26
+    1f68:	bb 1f       	adc	r27, r27
+    1f6a:	a6 17       	cp	r26, r22
+    1f6c:	b7 07       	cpc	r27, r23
+    1f6e:	10 f0       	brcs	.+4      	; 0x1f74 <__udivmodhi4_ep>
+    1f70:	a6 1b       	sub	r26, r22
+    1f72:	b7 0b       	sbc	r27, r23
 
-00001f96 <__prologue_saves__>:
-    1f96:	2f 92       	push	r2
-    1f98:	3f 92       	push	r3
-    1f9a:	4f 92       	push	r4
-    1f9c:	5f 92       	push	r5
-    1f9e:	6f 92       	push	r6
-    1fa0:	7f 92       	push	r7
-    1fa2:	8f 92       	push	r8
-    1fa4:	9f 92       	push	r9
-    1fa6:	af 92       	push	r10
-    1fa8:	bf 92       	push	r11
-    1faa:	cf 92       	push	r12
-    1fac:	df 92       	push	r13
-    1fae:	ef 92       	push	r14
-    1fb0:	ff 92       	push	r15
-    1fb2:	0f 93       	push	r16
-    1fb4:	1f 93       	push	r17
-    1fb6:	cf 93       	push	r28
-    1fb8:	df 93       	push	r29
-    1fba:	cd b7       	in	r28, 0x3d	; 61
-    1fbc:	de b7       	in	r29, 0x3e	; 62
-    1fbe:	ca 1b       	sub	r28, r26
-    1fc0:	db 0b       	sbc	r29, r27
-    1fc2:	0f b6       	in	r0, 0x3f	; 63
-    1fc4:	f8 94       	cli
-    1fc6:	de bf       	out	0x3e, r29	; 62
-    1fc8:	0f be       	out	0x3f, r0	; 63
-    1fca:	cd bf       	out	0x3d, r28	; 61
-    1fcc:	09 94       	ijmp
+00001f74 <__udivmodhi4_ep>:
+    1f74:	88 1f       	adc	r24, r24
+    1f76:	99 1f       	adc	r25, r25
+    1f78:	5a 95       	dec	r21
+    1f7a:	a9 f7       	brne	.-22     	; 0x1f66 <__udivmodhi4_loop>
+    1f7c:	80 95       	com	r24
+    1f7e:	90 95       	com	r25
+    1f80:	bc 01       	movw	r22, r24
+    1f82:	cd 01       	movw	r24, r26
+    1f84:	08 95       	ret
 
-00001fce <__epilogue_restores__>:
-    1fce:	2a 88       	ldd	r2, Y+18	; 0x12
-    1fd0:	39 88       	ldd	r3, Y+17	; 0x11
-    1fd2:	48 88       	ldd	r4, Y+16	; 0x10
-    1fd4:	5f 84       	ldd	r5, Y+15	; 0x0f
-    1fd6:	6e 84       	ldd	r6, Y+14	; 0x0e
-    1fd8:	7d 84       	ldd	r7, Y+13	; 0x0d
-    1fda:	8c 84       	ldd	r8, Y+12	; 0x0c
-    1fdc:	9b 84       	ldd	r9, Y+11	; 0x0b
-    1fde:	aa 84       	ldd	r10, Y+10	; 0x0a
-    1fe0:	b9 84       	ldd	r11, Y+9	; 0x09
-    1fe2:	c8 84       	ldd	r12, Y+8	; 0x08
-    1fe4:	df 80       	ldd	r13, Y+7	; 0x07
-    1fe6:	ee 80       	ldd	r14, Y+6	; 0x06
-    1fe8:	fd 80       	ldd	r15, Y+5	; 0x05
-    1fea:	0c 81       	ldd	r16, Y+4	; 0x04
-    1fec:	1b 81       	ldd	r17, Y+3	; 0x03
-    1fee:	aa 81       	ldd	r26, Y+2	; 0x02
-    1ff0:	b9 81       	ldd	r27, Y+1	; 0x01
-    1ff2:	ce 0f       	add	r28, r30
-    1ff4:	d1 1d       	adc	r29, r1
+00001f86 <__udivmodsi4>:
+    1f86:	a1 e2       	ldi	r26, 0x21	; 33
+    1f88:	1a 2e       	mov	r1, r26
+    1f8a:	aa 1b       	sub	r26, r26
+    1f8c:	bb 1b       	sub	r27, r27
+    1f8e:	fd 01       	movw	r30, r26
+    1f90:	0d c0       	rjmp	.+26     	; 0x1fac <__udivmodsi4_ep>
+
+00001f92 <__udivmodsi4_loop>:
+    1f92:	aa 1f       	adc	r26, r26
+    1f94:	bb 1f       	adc	r27, r27
+    1f96:	ee 1f       	adc	r30, r30
+    1f98:	ff 1f       	adc	r31, r31
+    1f9a:	a2 17       	cp	r26, r18
+    1f9c:	b3 07       	cpc	r27, r19
+    1f9e:	e4 07       	cpc	r30, r20
+    1fa0:	f5 07       	cpc	r31, r21
+    1fa2:	20 f0       	brcs	.+8      	; 0x1fac <__udivmodsi4_ep>
+    1fa4:	a2 1b       	sub	r26, r18
+    1fa6:	b3 0b       	sbc	r27, r19
+    1fa8:	e4 0b       	sbc	r30, r20
+    1faa:	f5 0b       	sbc	r31, r21
+
+00001fac <__udivmodsi4_ep>:
+    1fac:	66 1f       	adc	r22, r22
+    1fae:	77 1f       	adc	r23, r23
+    1fb0:	88 1f       	adc	r24, r24
+    1fb2:	99 1f       	adc	r25, r25
+    1fb4:	1a 94       	dec	r1
+    1fb6:	69 f7       	brne	.-38     	; 0x1f92 <__udivmodsi4_loop>
+    1fb8:	60 95       	com	r22
+    1fba:	70 95       	com	r23
+    1fbc:	80 95       	com	r24
+    1fbe:	90 95       	com	r25
+    1fc0:	9b 01       	movw	r18, r22
+    1fc2:	ac 01       	movw	r20, r24
+    1fc4:	bd 01       	movw	r22, r26
+    1fc6:	cf 01       	movw	r24, r30
+    1fc8:	08 95       	ret
+
+00001fca <__prologue_saves__>:
+    1fca:	2f 92       	push	r2
+    1fcc:	3f 92       	push	r3
+    1fce:	4f 92       	push	r4
+    1fd0:	5f 92       	push	r5
+    1fd2:	6f 92       	push	r6
+    1fd4:	7f 92       	push	r7
+    1fd6:	8f 92       	push	r8
+    1fd8:	9f 92       	push	r9
+    1fda:	af 92       	push	r10
+    1fdc:	bf 92       	push	r11
+    1fde:	cf 92       	push	r12
+    1fe0:	df 92       	push	r13
+    1fe2:	ef 92       	push	r14
+    1fe4:	ff 92       	push	r15
+    1fe6:	0f 93       	push	r16
+    1fe8:	1f 93       	push	r17
+    1fea:	cf 93       	push	r28
+    1fec:	df 93       	push	r29
+    1fee:	cd b7       	in	r28, 0x3d	; 61
+    1ff0:	de b7       	in	r29, 0x3e	; 62
+    1ff2:	ca 1b       	sub	r28, r26
+    1ff4:	db 0b       	sbc	r29, r27
     1ff6:	0f b6       	in	r0, 0x3f	; 63
     1ff8:	f8 94       	cli
     1ffa:	de bf       	out	0x3e, r29	; 62
     1ffc:	0f be       	out	0x3f, r0	; 63
     1ffe:	cd bf       	out	0x3d, r28	; 61
-    2000:	ed 01       	movw	r28, r26
-    2002:	08 95       	ret
+    2000:	09 94       	ijmp
 
-00002004 <_exit>:
-    2004:	f8 94       	cli
+00002002 <__epilogue_restores__>:
+    2002:	2a 88       	ldd	r2, Y+18	; 0x12
+    2004:	39 88       	ldd	r3, Y+17	; 0x11
+    2006:	48 88       	ldd	r4, Y+16	; 0x10
+    2008:	5f 84       	ldd	r5, Y+15	; 0x0f
+    200a:	6e 84       	ldd	r6, Y+14	; 0x0e
+    200c:	7d 84       	ldd	r7, Y+13	; 0x0d
+    200e:	8c 84       	ldd	r8, Y+12	; 0x0c
+    2010:	9b 84       	ldd	r9, Y+11	; 0x0b
+    2012:	aa 84       	ldd	r10, Y+10	; 0x0a
+    2014:	b9 84       	ldd	r11, Y+9	; 0x09
+    2016:	c8 84       	ldd	r12, Y+8	; 0x08
+    2018:	df 80       	ldd	r13, Y+7	; 0x07
+    201a:	ee 80       	ldd	r14, Y+6	; 0x06
+    201c:	fd 80       	ldd	r15, Y+5	; 0x05
+    201e:	0c 81       	ldd	r16, Y+4	; 0x04
+    2020:	1b 81       	ldd	r17, Y+3	; 0x03
+    2022:	aa 81       	ldd	r26, Y+2	; 0x02
+    2024:	b9 81       	ldd	r27, Y+1	; 0x01
+    2026:	ce 0f       	add	r28, r30
+    2028:	d1 1d       	adc	r29, r1
+    202a:	0f b6       	in	r0, 0x3f	; 63
+    202c:	f8 94       	cli
+    202e:	de bf       	out	0x3e, r29	; 62
+    2030:	0f be       	out	0x3f, r0	; 63
+    2032:	cd bf       	out	0x3d, r28	; 61
+    2034:	ed 01       	movw	r28, r26
+    2036:	08 95       	ret
 
-00002006 <__stop_program>:
-    2006:	ff cf       	rjmp	.-2      	; 0x2006 <__stop_program>
+00002038 <_exit>:
+    2038:	f8 94       	cli
+
+0000203a <__stop_program>:
+    203a:	ff cf       	rjmp	.-2      	; 0x203a <__stop_program>

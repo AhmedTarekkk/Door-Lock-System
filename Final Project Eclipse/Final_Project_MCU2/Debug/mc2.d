@@ -1,31 +1,35 @@
-mc2.o mc2.o: ../mc2.c ../MCAL/UART/uart.h \
-  ../MCAL/UART/../../LIB/std_types.h ../MCAL/TWI/twi.h \
-  ../MCAL/TWI/../../LIB/std_types.h ../MCAL/TIMER1/timer1.h \
-  ../MCAL/TIMER1/../../LIB/std_types.h ../HAL/BUZZER/buzzer.h \
-  ../HAL/BUZZER/../../LIB/std_types.h ../HAL/EXT_EEPORM/eeprom.h \
-  ../HAL/EXT_EEPORM/../../LIB/std_types.h ../HAL/MOTOR/motor.h \
-  ../HAL/MOTOR/../../LIB/std_types.h
+mc2.o mc2.o: ../mc2.c ../APP/app.h ../APP/../MCAL/UART/uart.h \
+  ../APP/../MCAL/UART/../../LIB/std_types.h ../APP/../MCAL/TWI/twi.h \
+  ../APP/../MCAL/TWI/../../LIB/std_types.h ../APP/../MCAL/TIMER1/timer1.h \
+  ../APP/../MCAL/TIMER1/../../LIB/std_types.h \
+  ../APP/../HAL/BUZZER/buzzer.h \
+  ../APP/../HAL/BUZZER/../../LIB/std_types.h \
+  ../APP/../HAL/EXT_EEPORM/eeprom.h \
+  ../APP/../HAL/EXT_EEPORM/../../LIB/std_types.h \
+  ../APP/../HAL/MOTOR/motor.h ../APP/../HAL/MOTOR/../../LIB/std_types.h
 
-../MCAL/UART/uart.h:
+../APP/app.h:
 
-../MCAL/UART/../../LIB/std_types.h:
+../APP/../MCAL/UART/uart.h:
 
-../MCAL/TWI/twi.h:
+../APP/../MCAL/UART/../../LIB/std_types.h:
 
-../MCAL/TWI/../../LIB/std_types.h:
+../APP/../MCAL/TWI/twi.h:
 
-../MCAL/TIMER1/timer1.h:
+../APP/../MCAL/TWI/../../LIB/std_types.h:
 
-../MCAL/TIMER1/../../LIB/std_types.h:
+../APP/../MCAL/TIMER1/timer1.h:
 
-../HAL/BUZZER/buzzer.h:
+../APP/../MCAL/TIMER1/../../LIB/std_types.h:
 
-../HAL/BUZZER/../../LIB/std_types.h:
+../APP/../HAL/BUZZER/buzzer.h:
 
-../HAL/EXT_EEPORM/eeprom.h:
+../APP/../HAL/BUZZER/../../LIB/std_types.h:
 
-../HAL/EXT_EEPORM/../../LIB/std_types.h:
+../APP/../HAL/EXT_EEPORM/eeprom.h:
 
-../HAL/MOTOR/motor.h:
+../APP/../HAL/EXT_EEPORM/../../LIB/std_types.h:
 
-../HAL/MOTOR/../../LIB/std_types.h:
+../APP/../HAL/MOTOR/motor.h:
+
+../APP/../HAL/MOTOR/../../LIB/std_types.h:
